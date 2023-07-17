@@ -14,7 +14,7 @@ public class TaskService {
     private int taskId = 1;
     SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
 
-    public Task addTask(String title,String description,String deadline) throws ParseException {
+    public Task addTask(String title, String description, String deadline) throws ParseException {
 
         Task task = new Task();
         task.setId(taskId);
@@ -31,30 +31,30 @@ public class TaskService {
 
     }
 
-    public Task getTaskById(int id){
+    public Task getTaskById(int id) {
 
-        return tasks.stream().findAny().filter(task1 -> task1.getId()== id).orElse(null);
+        return tasks.stream().findAny().filter(task1 -> task1.getId() == id).orElse(null);
     }
 
-    public ArrayList<Task> getTasks(){
+    public ArrayList<Task> getTasks() {
         return tasks;
     }
 
-    public Task updateTaskById(int id,String description,String deadline,Boolean completed) throws ParseException {
+    public Task updateTaskById(int id, String description, String deadline, Boolean completed) throws ParseException {
 
-        Task task= getTaskById(id);
-        if(task == null){
+        Task task = getTaskById(id);
+        if (task == null) {
             return null;
         }
-        if(completed != null){
+        if (completed != null) {
             task.setCompleted(completed);
         }
 
-        if(deadline!=null){
+        if (deadline != null) {
             task.setDeadline(dateFormatter.parse(deadline));
         }
 
-        if(description!= null){
+        if (description != null) {
             task.setDescription(description);
         }
 

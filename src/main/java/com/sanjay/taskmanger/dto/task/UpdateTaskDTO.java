@@ -1,4 +1,4 @@
-package com.sanjay.taskmanger.dto;
+package com.sanjay.taskmanger.dto.task;
 
 
 import lombok.Getter;
